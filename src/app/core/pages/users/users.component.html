@@ -1,0 +1,31 @@
+<section class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center my-4">
+        <h1 class="h3 text-white">Usuários</h1>
+        <button class="btn btn-primary"(click)="openUserDialog(false)">Adicionar Usuário</button>
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped bg-white text-dark">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>UserName</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            @for(user of usersList; track user){
+                <tbody>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.userName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>
+                        <button class="btn btn-info btn-sm" (click)="openUserDialog(true, user)">Editar</button>
+                        <button class="btn btn-danger btn-sm" (click)="openUserDialog(false, user, true)">Excluir</button>
+                    </td>
+            </tbody>
+        }
+        </table>
+    </div>
+</section>
